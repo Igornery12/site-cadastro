@@ -1,0 +1,10 @@
+* appsettings.Development.json
+* Site Cadastro.csproj
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.log
+* appsettings.Development.json

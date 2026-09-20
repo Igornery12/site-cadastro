@@ -1,0 +1,28 @@
+
+
+@{
+  ViewData["Title"] = "Signin";
+  if(ViewBag.Error != null)
+  {
+    <div class="alert alert-danger"">
+        @ViewBag.Error
+    </div>
+  }
+}
+
+
+<form class = "form-control" method="post" action="/Users/Signin" >
+  <div >
+    <div class="form-group col-md-6">
+      <label for="Email">Email</label>
+      <input type="email" class="form-control" name="Email" placeholder="Email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="password">senha</label>
+      <input type="password" class="form-control" name="password" placeholder="digite a senha">
+    </div>
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Sign in</button>
+  
+</form>
