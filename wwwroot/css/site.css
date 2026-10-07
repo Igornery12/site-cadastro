@@ -19,6 +19,8 @@ html {
 
 body {
   margin-bottom: 60px;
+ 
+  background: linear-gradient(rgb(174, 228, 250),rgb(219, 146, 248));
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {

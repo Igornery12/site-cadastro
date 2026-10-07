@@ -10,12 +10,17 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Site_Cadastro.styles.css" asp-append-version="true" />
+    
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Site_Cadastro</a>
+                @if (User.Identity?.IsAuthenticated == true)
+                    {
+                         <a class="navbar-brand" asp-area="" asp-controller="App" asp-action="HomeApp">@User.Identity.Name</a>
+                    }
+               
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,21 +33,29 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AboutUs">Sobre Nós</a>
                         </li>
-                        <li class="nav-item">
+                        @if(User.Identity?.IsAuthenticated == false)
+                        {
+                            <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Signin">Logar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Signup">Cadastrar</a>
-                        </li>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Signup">Cadastrar</a>
+                            </li>
+                        }
+                            
                         @if(User.Identity?.IsAuthenticated == true)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="App" asp-action="HomeApp">Painel</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Stock" asp-action="Dashboard">Painel</a>
                             </li>
 
-                        <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="App" asp-action="LogOut">Sair</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Stock" asp-action="MarketPlace">MarketPlace</a> 
+                            </li>
+
+                            <li>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="App" asp-action="LogOut">Sair</a>
+                            </li>
                         }
                     </ul>
                 </div>

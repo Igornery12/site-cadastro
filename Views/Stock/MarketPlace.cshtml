@@ -1,0 +1,50 @@
+@model List<Site_Cadastro.Models.Stock>
+
+@{
+    ViewData["Title"] = "Marketplace";
+}
+
+<div class="container">
+
+    <h1 class="mb-4">Marketplace</h1>
+
+    <div class="row">
+
+        @foreach (var product in Model)
+        {
+            <div class="col-md-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            @product.Product
+                        </h5>
+
+                        <h4 class="text-success">
+                            R$ @product.Price
+                        </h4>
+
+                        <p class="card-text">
+                            Quantidade disponível:
+                            @product.Quantities
+                        </p>
+
+                        <a asp-controller="Stock"
+                           asp-action="ProductDetails"
+                           asp-route-id="@product.Id"
+                           class="btn btn-primary">
+                            Ver produto
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+</div>

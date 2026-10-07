@@ -1,0 +1,53 @@
+@model Site_Cadastro.Models.Stock
+
+@{
+    ViewData["Title"] = "Adicionar Estoque";
+    if(ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+}
+
+<form asp-controller="Stock"
+      asp-action="UpdateStock"
+      method="post">
+
+    <input type="hidden"
+           name="id"
+           value="@Model.Id" />
+
+    <div class="card">
+        <div class="card-body">
+
+            <h5 class="card-title">
+                @Model.Product
+            </h5>
+
+            <p>
+                Quantidade atual:
+                <strong>@Model.Quantities</strong>
+            </p>
+
+            <label for="quantities">
+                Quantidade para adicionar:
+            </label>
+
+            <input type="number"
+                   name="quantities"
+                   id="quantities"
+                   class="form-control"
+                   required />
+
+            <br>
+
+            <button type="submit"
+                    class="btn btn-success">
+                Adicionar estoque
+            </button>
+
+        </div>
+    </div>
+
+</form>

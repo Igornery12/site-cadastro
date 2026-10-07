@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Product Details";
+}
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <h1>@Model.Product</h1>
+
+            <hr>
+
+            <h2 class="text-success">
+                R$ @Model.Price
+            </h2>
+
+            <p>
+                <strong>Quantidade disponível:</strong>
+                @Model.Quantities
+            </p>
+
+            <p>
+                <strong>Produto:</strong>
+                @Model.Product
+            </p>
+
+            <a 
+               class="btn btn-success">
+                Comprar
+            </a>
+
+            <a asp-controller="Stock"
+               asp-action="MarketPlace"
+               asp-route-id="@Model.Id"
+               class="btn btn-secondary">
+                Voltar
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

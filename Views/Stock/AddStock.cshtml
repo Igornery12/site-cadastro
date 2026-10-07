@@ -1,0 +1,37 @@
+@{
+    ViewData["Title"] = "AddStock";
+    if(ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">
+            @ViewBag.Error
+        </div>
+    }
+
+}
+
+
+
+
+<form class="form-control" method="post" >
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="text">Produto</label>
+      <input type="text" class="form-control" name="Product" id= "Product" placeholder="digite o nome do produto">
+    </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="text">Valor do produto</label>
+      <input type="text" class="form-control" name="recivedPrice" id="recivedPrice"  placeholder="digite o valor do produto">
+    </div>
+    <div class="form-group col-md-6">
+      <label >Quantidade Disponível</label>
+      <input type="number" class="form-control" name="Quantities" id="Quantities" placeholder="digite a quantidade em estoque">
+    </div>
+    
+    <p>
+
+    </p>
+  <button type="submit" class="btn btn-primary" >Enviar Produto</button>
+</form>

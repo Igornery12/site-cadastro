@@ -1,0 +1,59 @@
+
+@model List<Site_Cadastro.Models.Stock>
+@{ 
+    ViewData["Title" ] = "Dashboard";
+}
+
+<h1 style="text-align: center;">Meus Produtos</h1>
+
+<a href="AddStock" style="color:black"> <strong> adicinoar produtos ➕ </strong></a>
+
+@if (Model.Any())
+{
+    @foreach(var product in Model )
+    {
+        <div class="col-md-4 mb-4">
+
+                <div class="card h-100 shadow-sm">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title">
+                            @product.Product
+                        </h5>
+
+                        <h4 class="text-success">
+                            R$ @product.Price
+                        </h4>
+
+                        <p class="card-text">
+                            Quantidade disponível:
+                            @product.Quantities
+                        </p>
+
+                        <a asp-controller="Stock"
+                           asp-action="RemoveStock"
+                           asp-route-id="@product.Id"
+                           class="btn btn-primary" style="color:black ; background-color: rgb(248, 104, 104); ">
+                            Remover produto
+                        </a>
+                        <a asp-controller="Stock"
+                           asp-action="UpdateStockProducts"
+                           asp-route-id="@product.Id"
+                           class="btn btn-primary">
+                            Adicionar estoque
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+    }
+}
+else
+{
+    <div style="text-align: center;">
+        <strong >Sem produtos registrados</strong>
+    </div>
+}
